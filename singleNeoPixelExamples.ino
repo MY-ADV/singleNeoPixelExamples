@@ -1,123 +1,89 @@
 #include <Adafruit_NeoPixel.h>
-//#ifdef __AVR__
-//  #include <avr/power.h>
-//#endif
-
-//int gamma[] = {
-//    0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
-//    0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  1,  1,  1,  1,
-//    1,  1,  1,  1,  1,  1,  1,  1,  1,  2,  2,  2,  2,  2,  2,  2,
-//    2,  3,  3,  3,  3,  3,  3,  3,  4,  4,  4,  4,  4,  5,  5,  5,
-//    5,  6,  6,  6,  6,  7,  7,  7,  7,  8,  8,  8,  9,  9,  9, 10,
-//   10, 10, 11, 11, 11, 12, 12, 13, 13, 13, 14, 14, 15, 15, 16, 16,
-//   17, 17, 18, 18, 19, 19, 20, 20, 21, 21, 22, 22, 23, 24, 24, 25,
-//   25, 26, 27, 27, 28, 29, 29, 30, 31, 32, 32, 33, 34, 35, 35, 36,
-//   37, 38, 39, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 50,
-//   51, 52, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 66, 67, 68,
-//   69, 70, 72, 73, 74, 75, 77, 78, 79, 81, 82, 83, 85, 86, 87, 89,
-//   90, 92, 93, 95, 96, 98, 99,101,102,104,105,107,109,110,112,114,
-//  115,117,119,120,122,124,126,127,129,131,133,135,137,138,140,142,
-//  144,146,148,150,152,154,156,158,160,162,164,167,169,171,173,175,
-//  177,180,182,184,186,189,191,193,196,198,200,203,205,208,210,213,
-//  215,218,220,223,225,228,231,233,236,239,241,244,247,249,252,255 };
-
-
 
 #define PIN 8
 #define NUM_LEDS 1
+#define BRIGHTNESS 100            
 
-//#define BRIGHTNESS 50
-
-int BRIGHTNESS = 50;
-
-Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM_LEDS, PIN, NEO_GRBW + NEO_KHZ800);
-//Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM_LEDS, PIN, NEO_GRB + NEO_KHZ800);
+//Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM_LEDS, PIN, NEO_GRBW + NEO_KHZ800);
+Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM_LEDS, PIN, NEO_GRB + NEO_KHZ800);
 
 void setup() {
   Serial.begin(115200);
-  strip.setBrightness(50);
+  strip.setBrightness(BRIGHTNESS);  //  limits the brightness. takes 0-255
   strip.begin();
-  strip.show(); // Initialize all pixels to 'off'
+  strip.show();                     // Initialize the light to OFF
 }
 
 void loop() {
 
 // light ON
-//strip.setPixelColor(0, 250 , 250 , 250);
-//strip.setBrightness(10); // 0 to 255 // set at top of code or set in codeif we want it to chage
-//strip.show();
-//delay(1000);
-//
-//
-//strip.show();
-//delay(1000);
-//
-//strip.setBrightness(50); // 0 to 255 // set at top of code or set in codeif we want it to chage
-//strip.show();
-//delay(1000);
-//
-//strip.setBrightness(250); // 0 to 255 // set at top of code or set in codeif we want it to chage
-//strip.show();
-//delay(1000);
-//
-//
+strip.setPixelColor(0, 250 , 250 , 250);
+strip.show();
+delay(1000);
+
+
 //// light OFF
 //strip.setPixelColor(0, 0, 0, 0);
-//strip.show();    
+//strip.show();
 //delay(1000);
-//strip.setPixelColor(0, 250 , 250 , 250);
-strip.show();
 
-////for (int i=0; i<256; i++)
-//for (int i=0; i<256; i+=10)
-//{
-//  
-//  //strip.setBrightness(i); // 0 to 255 // set at top of code or set in codeif we want it to chage
+
+//// Change intensity
+//strip.setPixelColor(0, 20, 20, 20);
+//strip.show();
+//delay(1000);
+//strip.setPixelColor(0, 100, 100, 100);
+//strip.show();
+//delay(1000);
+//strip.setPixelColor(0, 250, 250, 250);
+//strip.show();
+//delay(1000);
+
+
+//// Fade in 
+//for (int i=0; i<256; i++)
+////for (int i=0; i<256; i+=10)
+//{  
 //  strip.setPixelColor(0, i , i , i);
 //  strip.show();
-//  delay(100);
+//  delay(50);
 //}
+
+
+//// Fade out
+//for (int i=255; i>0; i--)
+////for (int i=255; i>0; i-=10)
+//{
+//  strip.setPixelColor(0, i , i , i);
+//  strip.show();
+//  delay(50);
+//}
+
+
+//// Cycle colours
+//unsigned int colours[3];
 //
-////for (int i=255; i>0; i--)
-//for (int i=255; i>0; i-=10)
-//{
-//  
-//  //strip.setBrightness(i); // 0 to 255 // set at top of code or set in codeif we want it to chage
-//  strip.setPixelColor(0, i , i , i);
-//  strip.show();
-//  delay(100);
-//}
-
-// https://gist.github.com/jamesotron/766994
-
-unsigned int rgbColour[3];
-
-  // Start off with red.
-  rgbColour[0] = 255;
-  rgbColour[1] = 0;
-  rgbColour[2] = 0;  
-
-
-for (int decColour = 0; decColour < 3; decColour += 1) 
-  {
-      // relayState ? Relay_ON : Relay_OFF
-      // if (relayState) then use Relay_ON otherwise use Relay_OFF
-      // x = (val == 10) ? 20 : 15;
-      // f the conditional expression (val == 10) is True, the expression following the question mark is evaluated. 
-      // If the conditional expression is False, the expression following the colon is evaluated.
-  
-      int incColour = decColour == 2 ? 0 : decColour + 1;
-      for(int i = 0; i < 255; i += 1) 
-      {
-        rgbColour[decColour] -= 1;
-        rgbColour[incColour] += 1;      
-        //setColourRgb(rgbColour[0], rgbColour[1], rgbColour[2]);
-        strip.setPixelColor(0, rgbColour[0] , rgbColour[1] , rgbColour[2]);
-        strip.show();
-        delay(100);
-        delay(5);
-      }
-  }
+//// Start with red.
+//colours[0] = 255;
+//colours[1] = 0;
+//colours[2] = 0;  
+//
+//
+//for (int C1 = 0; C1 < 3; C1 += 1) 
+//  {
+//      // If (C1 == 2), C2 = 0. Otherwise C2 = C1 + 1  
+//      int C2 = (C1 == 2) ? 0 : C1 + 1;
+//
+//      // Cross fade two colours
+//      for(int i = 0; i < 255; i ++) 
+//      {
+//        colours[C1] -= 1;
+//        colours[C2] += 1;      
+//        strip.setPixelColor(0, colours[0] , colours[1] , colours[2]);
+//        strip.show();
+//        delay(10);
+//      }
+//  }
 
 
 }
