@@ -10,46 +10,16 @@
 //create a NeoPixel strip
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM_LEDS, PIN, NEO_GRB + NEO_KHZ800);
 
-////create accelerometer
-//LSM303C myIMU;
-//
-//float x, y, z; 
-//float threshold = 3;
-//float thresholdPace = 3;
-//
-//int steps, flag; //flag; // 
-//long MeasurePeriod = 3000; 
-//unsigned long startTime = millis() ;   
-//unsigned long endTime = millis(); 
-//int stepsOld = 0;
-//int stepsNew; 
-//float paceAve, timer, pacer; 
-
 void setup()
 {
   Serial.begin(115200);
   strip.begin();
   strip.show();
-//  if (myIMU.begin() != IMU_SUCCESS)
-//  {
-//    Serial.println("Failed setup.");
-//    while(1);
-//  }  
 }
 
 void loop()
 {
-//x = float((myIMU.readAccelX()));
-//y = float((myIMU.readAccelY()));
-//z = float((myIMU.readAccelZ()));
-//
-//Serial.print(x);
-//Serial.print("\t");
-//Serial.print(y);
-//Serial.print("\t");
-//Serial.println(z);
-//
-//delay(100);
+
 
 //  if (w>threshold && flag==0)
 //  {
@@ -57,13 +27,15 @@ void loop()
 //    
 //    flag=1;  
 //
-//     // light ON
-//    strip.setPixelColor(0, 255, 0, 0);
-//    strip.show();
-//    delay(200);
-//    // light OFF
-//    strip.setPixelColor(0, 0, 0, 0);
-//    strip.show();       
+ // light ON
+strip.setPixelColor(250, 0,0, 0);
+strip.show();
+delay(1000);
+// light OFF
+strip.setPixelColor(0, 0, 0, 0);
+strip.show();    
+delay(1000);
+   
 //  }
 //  
 //   else if (w > threshold && flag==1)
