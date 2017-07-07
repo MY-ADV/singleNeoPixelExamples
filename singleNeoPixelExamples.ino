@@ -22,68 +22,68 @@ strip.show();
 delay(1000);
 
 
-// light OFF
-strip.setPixelColor(0, 0, 0, 0);
-strip.show();
-delay(1000);
+//// light OFF
+//strip.setPixelColor(0, 0, 0, 0);
+//strip.show();
+//delay(1000);
 
 
-// Change intensity
-strip.setPixelColor(0, 20, 20, 20);
-strip.show();
-delay(1000);
-strip.setPixelColor(0, 100, 100, 100);
-strip.show();
-delay(1000);
-strip.setPixelColor(0, 250, 250, 250);
-strip.show();
-delay(1000);
+//// Change intensity
+//strip.setPixelColor(0, 20, 20, 20);
+//strip.show();
+//delay(1000);
+//strip.setPixelColor(0, 100, 100, 100);
+//strip.show();
+//delay(1000);
+//strip.setPixelColor(0, 250, 250, 250);
+//strip.show();
+//delay(1000);
 
 
-// Fade in 
-for (int i=0; i<256; i++)
-//for (int i=0; i<256; i+=10)
-{  
-  strip.setPixelColor(0, i , i , i);
-  strip.show();
-  delay(50);
-}
+//// Fade in 
+//for (int i=0; i<256; i++)
+////for (int i=0; i<256; i+=10)
+//{  
+//  strip.setPixelColor(0, i , i , i);
+//  strip.show();
+//  delay(50);
+//}
 
 
-// Fade out
-for (int i=255; i>0; i--)
-//for (int i=255; i>0; i-=10)
-{
-  strip.setPixelColor(0, i , i , i);
-  strip.show();
-  delay(50);
-}
+//// Fade out
+//for (int i=255; i>0; i--)
+////for (int i=255; i>0; i-=10)
+//{
+//  strip.setPixelColor(0, i , i , i);
+//  strip.show();
+//  delay(50);
+//}
 
 
-// Cycle colours
-unsigned int colours[3];
-
-// Start with red.
-colours[0] = 255;
-colours[1] = 0;
-colours[2] = 0;  
-
-
-for (int C1 = 0; C1 < 3; C1 += 1) 
-  {
-      // If (C1 == 2), C2 = 0. Otherwise C2 = C1 + 1  
-      int C2 = (C1 == 2) ? 0 : C1 + 1;
-
-      // Cross fade two colours
-      for(int i = 0; i < 255; i ++) 
-      {
-        colours[C1] -= 1;
-        colours[C2] += 1;      
-        strip.setPixelColor(0, colours[0] , colours[1] , colours[2]);
-        strip.show();
-        delay(10);
-      }
-  }
+//// Cycle colours
+//unsigned int colours[3];
+//
+//// Start with red.
+//colours[0] = 255;
+//colours[1] = 0;
+//colours[2] = 0;  
+//
+//
+//for (int C1 = 0; C1 < 3; C1 += 1) 
+//  {
+//      // If (C1 == 2), C2 = 0. Otherwise C2 = C1 + 1  
+//      int C2 = (C1 == 2) ? 0 : C1 + 1;
+//
+//      // Cross fade two colours
+//      for(int i = 0; i < 255; i ++) 
+//      {
+//        colours[C1] -= 1;
+//        colours[C2] += 1;      
+//        strip.setPixelColor(0, colours[0] , colours[1] , colours[2]);
+//        strip.show();
+//        delay(10);
+//      }
+//  }
 
 
 }
