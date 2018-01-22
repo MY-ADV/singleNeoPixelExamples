@@ -27,7 +27,7 @@ delay(1000);
 //strip.show();
 //delay(1000);
 
-
+//// Change intensity
 //// Change intensity
 //strip.setPixelColor(0, 20, 20, 20);
 //strip.show();
